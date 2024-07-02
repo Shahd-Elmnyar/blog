@@ -6,15 +6,15 @@
             </button>
         </x-slot>
 
-        <x-dropdown-item href="/" :active="request()->routeIs('home')">
-            All
+        <x-dropdown-item href="/?{{http_build_query(request()->except('category','page'))}}"
+            :active="request()->routeIs('home')">All
         </x-dropdown-item>
 
         <!-- <div x-show="show" class="py-2 absolute bg-gray-100 mt-2 rounded-xl w-full z-50" style="display: none;"> -->
-            
+
             @foreach($categories as $category)
                 <x-dropdown-item
-                href="/?category={{ $category->slug }}&{{http_build_query(request()->except('category'))}}"
+                href="/?category={{ $category->slug }}&{{http_build_query(request()->except('category','page'))}}"
                 :active='request()->is("categories/{$category->slug}")'>
                     {{ucwords($category->name)}}
                 </x-dropdown-item>
