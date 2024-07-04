@@ -17,7 +17,7 @@ class SessionController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-        if(auth()->attempt($attributes)){
+        if(!auth()->attempt($attributes)){
 
             throw ValidationException::withMessages([
                 'email'=>'your provided credentials are invalid'

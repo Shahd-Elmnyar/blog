@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\CommentController;
 use App\Models\User;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Support\Facades\Route;
@@ -8,6 +10,7 @@ use App\Http\Controllers\RegisterController;
 
 Route::get('/',[PostController::class,'index'])->name('home');
 Route::get('/posts/{post:slug}',[PostController::class,'show']);
+Route::post('posts/{post:slug}/comments',[CommentController::class,'store']);
 Route::get('register',[RegisterController::class,'create'])->middleware('guest');
 Route::post('register',[RegisterController::class,'store'])->middleware('guest');
 Route::post('logout',[SessionController::class,'destroy'])->middleware('auth');
