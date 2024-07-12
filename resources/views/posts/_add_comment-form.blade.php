@@ -12,7 +12,7 @@
                             <span class="text-xs text-red-500">{{$message}}</span>
                         @enderror
                         </div>
-                        <x-submit-button></x-submit-button>
+                        <x-submit-button>Post</x-submit-button>
                     </form>
                 </x-panel>
                 @else

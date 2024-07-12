@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Comment::factory(10)->create(['post_id'=>28]);
+        Post::factory(5)->create();
+        // Comment::factory(10)->create(['post_id'=>28]);
     }
 }
 
